@@ -1,50 +1,43 @@
-// Jouw persoonlijke projectenlijst
 const websites = [
     {
-        name: "Mijn CV (Lars Geirnaert)",
+        name: "Curriculum Vitae",
         url: "cv-lars-geirnaert.pdf",
-        description: "Mijn curriculum vitae als student AI & Data Engineer aan de HoGent."
+        description: "Mijn professionele achtergrond en technische vaardigheden."
     },
     {
         name: "Strava Analyzer",
         url: "https://larsgeirnaert.github.io/strava-analyzer/",
-        description: "Een webapplicatie voor het registreren, visualiseren en analyseren van sportprestaties."
+        description: "Interactieve dashboarding voor sport- en prestatieanalyse."
     },
     {
         name: "YouTube Wrapped",
-        url: "https://github.com/LarsGeirnaert/youtube-wrapped",
-        description: "Een tool die persoonlijke kijkgeschiedenis analyseert en visueel presenteert (Source Code)."
+        url: "youtube-wrapped.html",
+        description: "Data-verwerking en visualisatie van persoonlijke kijkgeschiedenis."
     },
     {
-        name: "Professional Communication Vocab",
-        url: "https://larsgeirnaert.github.io/Voc-Proffesional-Communication/",
-        description: "Een handige, interactieve website om efficiënt vocabulaire te leren en oefenen."
+        name: "Communication Vocab",
+        url: "vocab-preview.html",
+        description: "Gepersonaliseerde tool voor professionele terminologie."
     },
     {
         name: "Weather Darts",
         url: "https://larsgeirnaert.github.io/weather-darts/",
-        description: "Een creatief en leuk web-based spel waarbij je temperaturen moet raden."
+        description: "Web-app die real-time weerdata combineert met gamification."
     }
 ];
 
-// De code die de knoppen op het scherm zet
 const container = document.getElementById('links-container');
 
-websites.forEach(site => {
+websites.forEach((site) => {
     const card = document.createElement('a');
     card.href = site.url;
     card.className = 'link-card';
-    card.target = '_blank'; // Zorgt dat de link in een nieuw tabblad opent
+    card.target = '_blank';
 
-    const title = document.createElement('div');
-    title.className = 'link-title';
-    title.textContent = site.name;
+    card.innerHTML = `
+        <div class="link-title">${site.name}</div>
+        <div class="link-desc">${site.description}</div>
+    `;
 
-    const desc = document.createElement('div');
-    desc.className = 'link-desc';
-    desc.textContent = site.description;
-
-    card.appendChild(title);
-    card.appendChild(desc);
     container.appendChild(card);
 });
